@@ -1,2 +1,16 @@
-<h1>Todos#index</h1>
-<p>Find me in app/views/todos/index.html.erb</p>
+<!-- app/views/todos/index.html.erb -->
+<h1>Todo List</h1>
+
+<%= form_with model: Todo.new, id: 'new_todo_form', remote: true do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<ul id="todo_list">
+  <%= render @todos %>
+</ul>
